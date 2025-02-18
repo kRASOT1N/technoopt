@@ -1,0 +1,399 @@
+/* Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общий фон и шрифт */
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    /* Замените 'contact-bg.jpg' на своё изображение */
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Шапка (header) */
+header {
+    width: 100%;
+    /* Можно задать фон: background: rgba(0,0,0,0.5); если нужно */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 50px;/* Сброс базовых стилей */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Общий фон и шрифт */
+    body {
+        font-family: Arial, sans-serif;
+        color: #fff;
+        /* Замените 'images/background.png' на своё изображение */
+        background: url('images/background.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* Шапка (header) */
+    header {
+        width: 100%;
+        /* Можно задать фон: background: rgba(0,0,0,0.5); если нужно */
+    }
+
+    nav {
+        display: flex;
+        align-items: center;         /* Центрируем элементы по вертикали */
+        justify-content: flex-start; /* Логотип + меню слева направо */
+        padding: 15px 50px;
+        gap: 30px;
+    }
+
+    /* Логотип: та же высота, что у ссылок (50px), + ширина 50px */
+    .company-logo {
+        height: 50px;
+        width: 50px;
+        object-fit: cover; /* Если картинка не квадратная, впишется аккуратнее */
+        margin-right: 20px;
+    }
+
+    /* Меню */
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        /* Если нужно, чтобы ссылки были на одной высоте с лого, align-items: center;
+           (но мы уже сделали это в родительском nav) */
+    }
+
+    /* Делаем ссылки-кнопки высотой 50px (как у логотипа) */
+    nav li a {
+        display: inline-flex;              /* Позволяет вертикально центрировать текст */
+        align-items: center;
+        justify-content: center;
+        height: 50px;                      /* Одинаковая высота */
+        padding: 0 15px;                   /* Горизонтальные отступы */
+
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+
+        border: 1px solid transparent;     /* Можно затем сделать обводку при hover */
+        transition: all 0.3s ease;
+    }
+
+    nav li a:hover {
+        color: #FFD700;
+        border-color: #FFD700;            /* Пример: жёлтая рамка при наведении */
+    }
+
+    /* Баннер с заголовком и хлебными крошками */
+    .hero-banner {
+        text-align: left;
+        padding: 60px 50px;
+    }
+
+    .hero-banner h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .breadcrumbs {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+    /* Контейнер для контактных данных и карты с формой */
+    .contacts-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 50px;
+        flex-wrap: wrap; /* Чтобы на маленьких экранах блоки шли друг под другом */
+    }
+
+    /* Левая часть (контакты) */
+    .contacts-left {
+        background: #111; /* Тёмный фон */
+        /* При желании добавить фоновый паттерн/текстуру,
+           например:
+           background-image: url('images/texture.png');
+           background-repeat: repeat;
+        */
+        padding: 40px;
+        margin-right: 20px;
+        border-radius: 8px;
+        flex: 1 1 320px;
+        /* Минимальная ширина, чтобы на мелких экранах не сжималось слишком */
+    }
+
+    .contacts-left h3 {
+        color: #f017ff; /* Яркий розово-фиолетовый, как на скриншоте */
+        margin-bottom: 15px;
+        font-weight: normal;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .contacts-left h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .contacts-left ul {
+        list-style: none;
+        line-height: 1.6;
+    }
+    .contacts-left ul li {
+        margin-bottom: 10px;
+    }
+    .contacts-left a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .contacts-left a:hover {
+        text-decoration: underline;
+    }
+
+    /* Правая часть (карта + форма) */
+    .contacts-right {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 320px;
+        border-radius: 8px;
+    }
+
+    /* Карта */
+    .map-iframe {
+        height: 250px; /* Высота карты */
+        margin-bottom: 20px;
+    }
+    .map-iframe iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Форма */
+    .form-section {
+        background: #1f71ff; /* Ярко-синий фон, как на скриншоте */
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .form-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .form-section form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-section input,
+    .form-section textarea {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+        font-size: 16px;
+        color: #000; /* Тёмный текст внутри полей */
+    }
+
+    /* Кнопка */
+    .form-section button {
+        background: #f0c911; /* Жёлтая кнопка */
+        border: none;
+        border-radius: 4px;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        color: #000;
+        font-weight: bold;
+    }
+    .form-section button:hover {
+        background: #ffd933;
+    }
+
+    /* Адаптивность: на узких экранах блоки идут столбиком */
+    @media (max-width: 768px) {
+        .contacts-container {
+            flex-direction: column;
+        }
+        .contacts-left {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    gap: 30px;
+}
+
+/* Логотип */
+.company-logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+/* Меню */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+nav li a:hover {
+    color: #FFD700;
+}
+
+/* Баннер с заголовком и хлебными крошками */
+.hero-banner {
+    text-align: left;
+    padding: 60px 50px;
+}
+
+.hero-banner h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.breadcrumbs {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Контейнер для контактных данных и карты с формой */
+.contacts-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 50px;
+    flex-wrap: wrap; /* Чтобы на маленьких экранах блоки шли друг под другом */
+}
+
+/* Левая часть (контакты) */
+.contacts-left {
+    background: #111; /* Тёмный фон */
+    /* При желании добавить фоновый паттерн/текстуру,
+       например:
+       background-image: url('images/texture.png');
+       background-repeat: repeat;
+    */
+    padding: 40px;
+    margin-right: 20px;
+    border-radius: 8px;
+    flex: 1 1 320px;
+    /* Минимальная ширина, чтобы на мелких экранах не сжималось слишком */
+}
+
+.contacts-left h3 {
+    color: #f017ff; /* Яркий розово-фиолетовый, как на скриншоте */
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.contacts-left h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contacts-left ul {
+    list-style: none;
+    line-height: 1.6;
+}
+.contacts-left ul li {
+    margin-bottom: 10px;
+}
+.contacts-left a {
+    color: #fff;
+    text-decoration: none;
+}
+.contacts-left a:hover {
+    text-decoration: underline;
+}
+
+/* Правая часть (карта + форма) */
+.contacts-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 320px;
+    border-radius: 8px;
+}
+
+/* Карта */
+.map-iframe {
+    height: 250px; /* Высота карты */
+    margin-bottom: 20px;
+}
+.map-iframe iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Форма */
+.form-section {
+    background: #1f71ff; /* Ярко-синий фон, как на скриншоте */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+.form-section input,
+.form-section textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    color: #000; /* Тёмный текст внутри полей */
+}
+
+/* Кнопка */
+.form-section button {
+    background: #f0c911; /* Жёлтая кнопка, как в примере */
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+}
+.form-section button:hover {
+    background: #ffd933;
+}
+
+/* Адаптивность: на узких экранах блоки идут столбиком */
+@media (max-width: 768px) {
+    .contacts-container {
+        flex-direction: column;
+    }
+    .contacts-left {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

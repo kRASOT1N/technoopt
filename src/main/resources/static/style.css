@@ -1,0 +1,187 @@
+/* =========================
+   Сброс базовых отступов
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Убираем горизонтальный скролл
+   ========================= */
+html, body {
+    overflow-x: hidden; /* не будет прокрутки по горизонтали */
+}
+
+/* =========================
+   Основные стили страницы
+   ========================= */
+body {
+    font-family: Arial, sans-serif;
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+/* =========================
+   Шапка и навигация
+   ========================= */
+header {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* Логотип и меню идут слева направо */
+    padding: 15px 50px;
+    gap: 30px;
+}
+
+.company-logo {
+    height: 70px;
+    width: 70px;
+    margin-right: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a {
+    font-size: 1.5rem;
+}
+
+nav li a:hover {
+    color: #FFD700;
+}
+
+/* =========================
+   Блок-герой (Hero section)
+   ========================= */
+.hero {
+    margin-top: 50px;    /* Отступ сверху */
+    text-align: left;    /* Выравниваем контент слева */
+    padding: 30px 50px;  /* Горизонтальные отступы */
+}
+
+.hero h1 {
+    font-size: 6rem;     /* Крупный шрифт */
+    line-height: 1.2;
+    margin-bottom: 20px; /* Отступ перед кнопкой */
+}
+
+/* Кнопка "Наша продукция" – теперь в 1.5 раза больше, чем была 275px => ~412px */
+.cta-button {
+    width: 412px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+    margin-top: 180px;    /* Отступ от заголовка */
+    margin-bottom: 30px; /* Отступ снизу */
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   Секция партнёров
+   ========================= */
+.partners {
+    padding: 80px 20px;
+    /* Если есть заголовок h2 "Наши партнёры" отдельно – можно центрировать:
+       text-align: center;
+    */
+}
+
+/* Блок заголовка и кнопки в секции партнёров */
+.partners-header {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    height: 60px; /* Фиксированная высота для заголовка и кнопки */
+}
+
+.partners-header h2 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    margin: 0;
+}
+
+.partners-header .cta-button {
+    position: absolute;
+    /* Допустим, ставим 35%, чтобы центр кнопки был в 35% от левого края контейнера */
+    left: 20%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+
+    width: 412px;          /* ширина кнопки */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+.partners-header .cta-button:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* =========================
+   Контейнер для орбиты
+   ========================= */
+.orbit-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    /* Ставим блок правее:
+       Можно менять 70% на любое значение
+       или использовать float: right / margin-left: auto и т.д. */
+    margin-left: 70%;
+}
+
+/* =========================
+   Центральное лого (nashipartn)
+   ========================= */
+.central-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Это гарантирует, что лого окажется по центру контейнера
+       (правее/левее – уже настраиваем через сам контейнер). */
+    transform: translate(-50%, -50%);
+    /* При необходимости: width, height */
+}
+
+/* =========================
+   «Орбитальные» логотипы
+   ========================= */
+.orbit {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Смещение, чтобы лого вращались от центра (50%, 50%) */
+    transform: translate(-50%, -50%);
+    /* При необходимости задайте размеры логотипов:
+       width: 60px; height: 60px; */
+}
