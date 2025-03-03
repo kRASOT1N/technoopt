@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О компании</title>
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* СБРОС */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+        }
+
+
+
+        /* ФОН + РОДНОЙ ШРИФТ (не меняем "Noto Serif") */
+        body {
+            font-family: 'Noto Serif', sans-serif;
+            color: #fff;
+            background: url('images/background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* ШАПКА */
+        header {
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;              /* Сходно с главной */
+            padding: 10px 40px;     /* Сходно с главной */
+        }
+        .company-logo {
+            width: 70px;           /* Аналогично главной (70px) */
+            height: 70px;
+            object-fit: cover;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;             /* Аналогично главной */
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+
+        /* Меню — единый размер, аналогично главной */
+        nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.5rem;     /* Аналогично главной */
+            transition: color 0.3s ease;
+        }
+        nav li a:hover {
+            color: #FFD700;
+        }
+
+        /* ОСНОВНОЙ КОНТЕНТ */
+        main {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px 0;
+        }
+        .hero-banner {
+            text-align: left;
+            padding: 60px 50px;
+        }
+        /* Заголовок — единый размер */
+        .hero-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .about-company {
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            box-sizing: border-box;
+        }
+        /* Текст — пример 1.2rem, чтобы было одинаково */
+        .about-company p,
+        .about-company li {
+            font-size: 1.7rem;
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+        .first-two {
+            font-weight: bold;
+        }
+        /* МАСШТАБ */
+        .scale-wrapper {
+            /* Этот блок растягиваем, чтобы футер был внизу, если контента мало */
+            flex: 1;
+        }
+            html, body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            main {
+                flex: 1;
+            }
+
+            .footer {
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        .footer .contacts {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer .contact-row {
+            display: flex;
+            gap: 30px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .logo img {
+            height: 40px;
+        }
+        .footer p {
+            font-size: 23px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="scale-wrapper"><!-- Весь контент -->
+
+    <header>
+        <nav>
+            <a href="/">
+                <img src="images/logo.png" alt="Логотип компании" class="company-logo">
+            </a>
+            <ul>
+                <li><a href="catalog">Каталог</a></li>
+                <li><a href="contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+    <main>
+        <section class="hero-banner">
+            <h1>О компании</h1>
+            <!-- хлебные крошки при необходимости -->
+        </section>
+
+        <section class="about-company">
+            <p>
+                <span class="first-two">ТОО «TECHNOOPT»</span> – ваш надежный партнер в сфере инженерного оборудования по всему Казахстану. Основанная в 2007 году, компания быстро завоевала репутацию лидера благодаря инновационному подходу, высокому профессионализму команды и постоянному стремлению к совершенству.
+            </p>
+            <p>
+                За годы успешной работы мы реализовали тысячи проектов в различных отраслях: от промышленного производства до современных инфраструктурных решений. Наши специалисты постоянно повышают свою квалификацию и внедряют новейшие технологии, что позволяет нам оставаться на передовой инженерных разработок.
+            </p>
+            <p>
+                <span class="first-two">Наша миссия</span> – обеспечить клиентов и партнеров только качественной, проверенной продукцией, соответствующей самым высоким стандартам надежности и эффективности. Мы сотрудничаем с ведущими производителями как на внутреннем, так и на международном рынках, что позволяет нам предлагать инновационные и адаптированные решения для любых задач.
+            </p>
+            <p>
+                В основе нашей деятельности лежат принципы честности, ответственности и стремления к постоянному развитию. Мы верим в долгосрочное сотрудничество, поэтому каждый клиент для нас – это партнер, с которым мы разделяем цели и ценности, вкладывая душу в реализацию совместных проектов.
+            </p>
+            <p>
+                <span class="first-two">Наши преимущества – ваша выгода:</span>
+            </p>
+            <ul>
+                <li><strong>Широкий ассортимент:</strong> мы предлагаем разнообразную продукцию, включающую как современные технологии, так и проверенные временем решения.</li>
+                <li><strong>Качество и надежность:</strong> каждая единица продукции проходит строгий контроль качества.</li>
+                <li><strong>Конкурентные цены:</strong> прямые поставки от производителей и оптимизированная логистика.</li>
+                <li><strong>Гибкие условия оплаты:</strong> мы предлагаем индивидуальные решения для каждого клиента.</li>
+                <li><strong>Оперативная доставка:</strong> разветвленная логистическая сеть по всей территории Казахстана.</li>
+            </ul>
+            <p>
+                Наш успех подтвержден доверием тысяч клиентов – от крупных промышленных корпораций до малого и среднего бизнеса. Мы неустанно работаем над совершенствованием сервиса, внедряя современные информационные технологии и стремясь к тому, чтобы каждая сделка была максимально комфортной и продуктивной.
+            </p>
+            <p>
+                Мы постоянно инвестируем в исследования и разработки, что позволяет нам адаптироваться к изменяющимся требованиям рынка и предлагать решения, способные вывести бизнес наших клиентов на новый уровень.
+            </p>
+            <p>
+                В будущем мы планируем расширять ассортимент продукции, внедрять новые технологические решения и укреплять партнерские связи не только в Казахстане, но и на международном уровне.
+            </p>
+            <p>
+                <span class="first-two">TECHNOOPT</span> – это не просто компания, а команда единомышленников, для которых главное – это успех клиента. Мы гордимся своими достижениями, уверены в завтрашнем дне и всегда готовы к новым вызовам.
+            </p>
+        </section>
+    </main>
+
+</div><!-- /scale-wrapper -->
+<footer class="footer">
+    <div class="contacts">
+        <div class="contact-row">
+            <p>+7 (701) 887 47 67</p>
+            <p>+7 (771) 033 05 11</p>
+        </div>
+        <div class="contact-row">
+            <p>г. Астана, улица C 308, строение 1</p>
+            <p>tehnoopotoms@mail.ru</p>
+        </div>
+    </div>
+    <div class="logo">
+        <a href="https://kras0t1n.online" target="_blank">
+            <img src="images/kras0t1n.png" alt="Логотип kras0t1n.online">
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

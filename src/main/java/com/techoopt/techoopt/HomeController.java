@@ -18,4 +18,17 @@ public class HomeController {
 
         return "contact";
     }
+
+    @GetMapping("/about")
+    public String about() {
+
+        return "aboutcomp";
+    }
+
+
+    @GetMapping("/catalog")
+    public String catalog() {
+
+        return "catalog";
+    }
 }

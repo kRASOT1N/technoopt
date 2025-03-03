@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const orbitItems = document.querySelectorAll(".orbit-item");
     let angle = 0;
-    const radius = 150; // Радиус вращения – расстояние от центра (подберите по вкусу)
-    const speed = 0.02; // Скорость вращения (измените при необходимости)
+    const radius = 180; // Радиус вращения – расстояние от центра (подберите по вкусу)
+    const speed = 0.01; // Скорость вращения (измените при необходимости)
 
     function rotateLogos() {
         angle += speed;

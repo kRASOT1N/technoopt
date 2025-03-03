@@ -3,72 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <title>Контакты</title>
-    <link rel="stylesheet" href="contacts.css">
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ВСТРОЕННЫЕ СТИЛИ (полностью с учётом изменений в шапке) -->
+    <style>
+        /* Сброс базовых стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Убираем горизонтальный скролл */
+        html, body {
+            overflow-x: hidden;
+        }
+
+
+        /* Общий фон и шрифт */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: url('images/background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Шапка (header) */
+        header {
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;              /* Аналогично главной */
+            padding: 10px 40px;     /* Аналогично главной */
+        }
+        .company-logo {
+            width: 70px;           /* Аналогично главной */
+            height: 70px;
+            object-fit: cover;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;             /* Аналогично главной */
+            margin: 0;
+            padding: 0;
+        }
+        nav li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.5rem;     /* Аналогично главной */
+        }
+        nav li a:hover {
+            color: #FFD700;
+        }
+
+        /* Баннер с заголовком */
+        .hero-banner {
+            text-align: left;
+            padding: 60px 50px;
+        }
+        .hero-banner h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Контейнер для контактных данных и карты с формой */
+        .contacts-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Левая часть (контакты) */
+        .contacts-left {
+            background: #111;
+            padding: 40px;
+            border-radius: 8px;
+            flex: 1 1 320px;
+            min-width: 300px;
+        }
+        .contacts-left h3 {
+            color: #f017ff;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        .contacts-left h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .contacts-left ul {
+            list-style: none;
+            line-height: 1.6;
+        }
+        .contacts-left ul li {
+            margin-bottom: 10px;
+        }
+        .contacts-left a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .contacts-left a:hover {
+            text-decoration: underline;
+        }
+
+        /* Правая часть (карта + форма) */
+        .contacts-right {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 320px;
+            border-radius: 8px;
+            min-width: 300px;
+        }
+        .map-iframe {
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .map-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Форма */
+        .form-section {
+            background: #1f71ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .form-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-section input,
+        .form-section textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            color: #000;
+        }
+        .form-section button {
+            background: #f0c911;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #000;
+            font-weight: bold;
+        }
+        .form-section button:hover {
+            background: #ffd933;
+        }
+
+        @media (max-width: 768px) {
+            .contacts-container {
+                flex-direction: column;
+            }
+            .contacts-left {
+                margin-bottom: 20px;
+            }
+        }
+        /* МАСШТАБ */
+        .scale-wrapper {
+            /* Этот блок растягиваем, чтобы футер был внизу, если контента мало */
+            flex: 1;
+        }
+        html, body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        .footer .contacts {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer .contact-row {
+            display: flex;
+            gap: 30px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .logo img {
+            height: 40px;
+        }
+        .footer p {
+            font-size: 23px;
+        }
+
+
+
+    </style>
 </head>
 <body>
-<header>
-    <nav>
-        <!-- Логотип (подставьте свой) -->
-        <img th:src="@{/images/logo.png}" alt="Логотип компании" class="company-logo">
+<div class="scale-wrapper"><!-- Весь контент здесь -->
 
-        <!-- Меню -->
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="catalog">Каталог</a></li>
-            <li><a href="aboutcomp">О компании</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <!-- Баннер с большим заголовком и «хлебными крошками» -->
-    <section class="hero-banner">
-        <h1>Контакты</h1>
-        <nav class="breadcrumbs">
-
-        </nav>
-    </section>
-
-    <!-- Основной блок контактов -->
-    <section class="contacts-container">
-        <!-- Левая часть: контактные данные -->
-        <div class="contacts-left">
-            <h3>КОНТАКТЫ</h3>
-            <h2>Свяжитесь с нами</h2>
+    <header>
+        <nav>
+            <a href="/">
+                <img src="images/logo.png" alt="Логотип компании" class="company-logo">
+            </a>
             <ul>
-                <li>+7 (701) 887 47 67</li>
-                <li>+7 (771) 033 05 11</li>
-                <li><a href="mailto:tehnoopotoms@mail.ru">tehnoopotoms@mail.ru</a></li>
-                <li>г. Астана, улица C 308, строение 1</li>
+                <li><a href="catalog">Каталог</a></li>
+                <li><a href="about">О компании</a></li>
             </ul>
-        </div>
+        </nav>
+    </header>
+    </div>
 
-        <div class="contacts-right">
-            <div class="map-iframe">
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1032.7343176103776!2d71.3469681!3d51.2097682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4245813d4be604dd%3A0xb2e4e3d3a148ac0!2z0KLQpiDQo9Cg0KPQow!5e0!3m2!1sru!2skz!4v1692530969961!5m2!1sru!2skz"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy">
-                </iframe>
+    <main>
+        <section class="hero-banner">
+            <h1>Контакты</h1>
+            <nav class="breadcrumbs">
+                <!-- Хлебные крошки, если нужны -->
+            </nav>
+        </section>
+
+        <section class="contacts-container">
+            <!-- Левая часть: контактные данные -->
+            <div class="contacts-left">
+                <h3>КОНТАКТЫ</h3>
+                <h2>Свяжитесь с нами</h2>
+                <ul>
+                    <li>+7 (701) 887 47 67</li>
+                    <li>+7 (771) 033 05 11</li>
+                    <li><a href="mailto:tehnoopotoms@mail.ru">tehnoopotoms@mail.ru</a></li>
+                    <li>г. Астана, улица C 308, строение 1</li>
+                </ul>
             </div>
 
-            <!-- Форма заявки -->
-            <div class="form-section">
-                <h3>Оставьте заявку на обратный звонок</h3>
-                <form id="tgForm">
-                    <input type="text" name="name" placeholder="Имя" required>
-                    <input type="text" name="phone" placeholder="+7 (777) 000 9998" required>
-                    <textarea name="comment" placeholder="Комментарий"></textarea>
-                    <button type="submit">Отправить заявку</button>
-                </form>
+            <!-- Правая часть: карта + форма -->
+            <div class="contacts-right">
+                <div class="map-iframe">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1032.7343176103776!2d71.3469681!3d51.2097682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4245813d4be604dd%3A0xb2e4e3d3a148ac0!2z0KLQpiDQo9Cg0KPQow!5e0!3m2!1sru!2skz!4v1692530969961!5m2!1sru!2skz"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy">
+                    </iframe>
+                </div>
 
+                <div class="form-section">
+                    <h3>Оставьте заявку на обратный звонок</h3>
+                    <form id="tgForm">
+                        <input type="text" name="name" placeholder="Имя" required>
+                        <input type="text" name="phone" placeholder="+7 (777) 123 4567" required>
+                        <textarea name="comment" placeholder="Комментарий"></textarea>
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                </div>
             </div>
+        </section>
+    </main>
+
+
+
+<script src="sendToTelegram.js"></script>
+<footer class="footer">
+    <div class="contacts">
+        <div class="contact-row">
+            <p>+7 (701) 887 47 67</p>
+            <p>+7 (771) 033 05 11</p>
         </div>
-    </section>
-</main>
-
-<script th:src="@{/sendToTelegram.js}"></script>
-
+        <div class="contact-row">
+            <p>г. Астана, улица C 308, строение 1</p>
+            <p>tehnoopotoms@mail.ru</p>
+        </div>
+    </div>
+    <div class="logo">
+        <a href="https://kras0t1n.online" target="_blank">
+            <img src="images/kras0t1n.png" alt="Логотип kras0t1n.online">
+        </a>
+    </div>
+</footer>
 </body>
 </html>

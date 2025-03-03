@@ -54,13 +54,7 @@ nav {
         gap: 30px;
     }
 
-    /* Логотип: та же высота, что у ссылок (50px), + ширина 50px */
-    .company-logo {
-        height: 50px;
-        width: 50px;
-        object-fit: cover; /* Если картинка не квадратная, впишется аккуратнее */
-        margin-right: 20px;
-    }
+
 
     /* Меню */
     nav ul {

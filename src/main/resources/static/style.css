@@ -15,6 +15,14 @@ html, body {
 }
 
 /* =========================
+   Масштабирование всего контента на 25% меньше
+   ========================= */
+.scale-wrapper {
+    transform: scale(0.70);
+    transform-origin: top left;
+}
+
+/* =========================
    Основные стили страницы
    ========================= */
 body {
@@ -78,98 +86,84 @@ nav li a:hover {
 .hero h1 {
     font-size: 6rem;     /* Крупный шрифт */
     line-height: 1.2;
-    margin-bottom: 20px; /* Отступ перед кнопкой */
+    margin-bottom: 20px; /* Отступ перед категориями */
 }
 
-/* Кнопка "Наша продукция" – теперь в 1.5 раза больше, чем была 275px => ~412px */
-.cta-button {
-    width: 412px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    display: block;
-    margin-top: 180px;    /* Отступ от заголовка */
-    margin-bottom: 30px; /* Отступ снизу */
-}
-
-.cta-button:hover {
-    transform: scale(1.05);
+/* Контейнер, где слева категории, справа партнёры */
+.hero-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
 }
 
 /* =========================
-   Секция партнёров
+   Категории (сетка)
+   ========================= */
+.categories {
+    margin-top: 20px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 auto; /* центрируем сетку внутри .categories */
+}
+
+/* 10-ю категорию по центру последнего ряда (если нужно) */
+.category-grid .category-block:nth-child(10) {
+    grid-column: 2;
+}
+
+.category-block {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.category-block:hover {
+    transform: scale(1.03);
+}
+
+.category-block img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.category-block h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* =========================
+   Крутилка партнёров (орбита)
    ========================= */
 .partners {
-    padding: 80px 20px;
-    /* Если есть заголовок h2 "Наши партнёры" отдельно – можно центрировать:
-       text-align: center;
-    */
+    /* Сдвигаем блок партнёров вправо (на 70% от ширины контейнера) и опускаем ниже (200px) */
+    margin-left: 20%;
+    margin-top: 200px;
 }
 
-/* Блок заголовка и кнопки в секции партнёров */
-.partners-header {
-    position: relative;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
-    height: 60px; /* Фиксированная высота для заголовка и кнопки */
-}
-
-.partners-header h2 {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 36px;
-    margin: 0;
-}
-
-.partners-header .cta-button {
-    position: absolute;
-    /* Допустим, ставим 35%, чтобы центр кнопки был в 35% от левого края контейнера */
-    left: 20%;
-    top: 70%;
-    transform: translate(-50%, -50%);
-
-    width: 412px;          /* ширина кнопки */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-
-.partners-header .cta-button:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-/* =========================
-   Контейнер для орбиты
-   ========================= */
 .orbit-container {
     position: relative;
     width: 300px;
     height: 300px;
-
-    /* Ставим блок правее:
-       Можно менять 70% на любое значение
-       или использовать float: right / margin-left: auto и т.д. */
-    margin-left: 70%;
+    margin: 0;
 }
 
-/* =========================
-   Центральное лого (nashipartn)
-   ========================= */
 .central-logo {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* Это гарантирует, что лого окажется по центру контейнера
-       (правее/левее – уже настраиваем через сам контейнер). */
     transform: translate(-50%, -50%);
-    /* При необходимости: width, height */
 }
 
-/* =========================
-   «Орбитальные» логотипы
-   ========================= */
 .orbit {
     position: relative;
     width: 100%;
@@ -180,8 +174,7 @@ nav li a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* Смещение, чтобы лого вращались от центра (50%, 50%) */
+    width: 50%;
+    height: 50%;
     transform: translate(-50%, -50%);
-    /* При необходимости задайте размеры логотипов:
-       width: 60px; height: 60px; */
 }
